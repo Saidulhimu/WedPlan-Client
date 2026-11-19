@@ -5,11 +5,12 @@ import Link from "next/link";
 import { Service } from "@/types";
 import { api } from "@/lib/api";
 import { ServiceCard } from "@/components/services/ServiceCard";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Award } from "lucide-react";
 
 export function FeaturedServices() {
   const [services, setServices] = useState<Service[]>([]);
   const [loading, setLoading] = useState(true);
+  const [filter, setFilter] = useState("All");
 
   useEffect(() => {
     const fetchFeatured = async () => {
@@ -28,30 +29,51 @@ export function FeaturedServices() {
     fetchFeatured();
   }, []);
 
+  const displayedServices =
+    filter === "All"
+      ? services
+      : services.filter((s) => s.category.toLowerCase().includes(filter.toLowerCase()));
+
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12">
+    <section className="py-24 bg-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10">
           <div className="space-y-3">
             <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-wedding-600">
-              <Sparkles className="h-4 w-4" />
+              <Award className="h-4 w-4" />
               <span>Curated Excellence</span>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-900">
               Featured Wedding Services
             </h2>
             <p className="text-sm text-slate-500 max-w-xl">
-              Explore our hand-selected, verified wedding professionals ready to make your celebration extraordinary.
+              Strictly approved and certified listings from verified artists, historic estates, and premier banquet creators.
             </p>
           </div>
           <Link
             href="/services"
-            className="mt-4 sm:mt-0 inline-flex items-center gap-1.5 text-sm font-semibold text-wedding-600 hover:text-wedding-700 transition-colors group"
+            className="mt-4 sm:mt-0 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-wedding-600 hover:text-wedding-700 transition-colors group"
           >
-            <span>View All Services</span>
+            <span>Explore All Services</span>
             <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Link>
+        </div>
+
+        {/* Quick Category Filter Pills */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 text-xs font-semibold">
+          {["All", "Venues", "Photography", "Florist", "Catering", "Styling"].map((pill) => (
+            <button
+              key={pill}
+              onClick={() => setFilter(pill)}
+              className={`rounded-full px-4 py-2 transition-all ${filter === pill
+                  ? "bg-wedding-500 text-white shadow-sm"
+                  : "bg-wedding-50 text-slate-600 border border-champagne-300 hover:border-wedding-400 hover:text-slate-900"
+                }`}
+            >
+              {pill === "All" ? "All Featured Services" : pill}
+            </button>
+          ))}
         </div>
 
         {/* Services Grid */}
@@ -60,20 +82,20 @@ export function FeaturedServices() {
             {[1, 2, 3, 4, 5, 6].map((i) => (
               <div
                 key={i}
-                className="h-80 rounded-2xl bg-champagne-100/50 animate-pulse border border-champagne-200"
+                className="h-96 rounded-3xl bg-champagne-100/60 animate-pulse border border-champagne-200"
               />
             ))}
           </div>
-        ) : services.length > 0 ? (
+        ) : displayedServices.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service) => (
+            {displayedServices.map((service) => (
               <ServiceCard key={service._id} service={service} />
             ))}
           </div>
         ) : (
-          <div className="rounded-2xl border border-dashed border-champagne-300 p-12 text-center">
+          <div className="rounded-3xl border border-dashed border-champagne-300 bg-wedding-50/40 p-16 text-center space-y-3">
             <p className="text-slate-500 text-sm">
-              Services are currently being curated. Run the server seeder or add new services to preview!
+              No services found for this filter. Run the database seed script to populate live demo services!
             </p>
           </div>
         )}

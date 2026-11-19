@@ -1,12 +1,13 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { api } from "@/lib/api";
+import { Logo } from "@/components/shared/Logo";
 import { toast } from "sonner";
-import { Heart, Mail, Lock, Loader2, Sparkles } from "lucide-react";
+import { Mail, Lock, Loader2, Sparkles, ShieldCheck, ArrowRight } from "lucide-react";
 
 export default function SignInPage() {
   const router = useRouter();
@@ -73,53 +74,53 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="min-h-screen py-16 bg-wedding-50 flex items-center justify-center px-4">
-      <div className="w-full max-w-md rounded-3xl border border-champagne-200 bg-white p-8 shadow-xl">
+    <div className="min-h-screen py-16 bg-gradient-to-b from-[#FDFBF7] via-white to-[#FAF6F0] flex items-center justify-center px-4">
+      <div className="w-full max-w-md rounded-3xl border border-champagne-300 bg-white p-8 sm:p-10 shadow-2xl space-y-6">
         {/* Header */}
-        <div className="text-center space-y-2 mb-8">
-          <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-wedding-500 text-white shadow-md">
-            <Heart className="h-6 w-6 fill-white" />
+        <div className="text-center space-y-3">
+          <div className="flex justify-center">
+            <Logo size="md" />
           </div>
           <h1 className="font-serif text-2xl font-bold text-slate-900">
-            Sign In to WedPlan
+            Sign In to Your Account
           </h1>
           <p className="text-xs text-slate-500">
-            Welcome back. Access your wedding planning dashboard.
+            Access your wedding inquiries, store catalog, or administrative controls.
           </p>
         </div>
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-xs font-semibold text-slate-700 mb-1">
+            <label className="block text-xs font-bold text-slate-700 mb-1">
               Email Address
             </label>
             <div className="relative">
-              <Mail className="absolute left-3.5 top-3 h-4 w-4 text-slate-400" />
+              <Mail className="absolute left-3.5 top-3.5 h-4 w-4 text-slate-400" />
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="name@example.com"
-                className="w-full rounded-xl border border-champagne-300 py-2.5 pl-10 pr-4 text-xs focus:border-wedding-500 focus:outline-none focus:ring-1 focus:ring-wedding-500 bg-slate-50/50"
+                className="w-full rounded-2xl border border-champagne-300 py-3 pl-10 pr-4 text-xs font-semibold focus:border-wedding-500 focus:outline-none bg-slate-50/50"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-slate-700 mb-1">
+            <label className="block text-xs font-bold text-slate-700 mb-1">
               Password
             </label>
             <div className="relative">
-              <Lock className="absolute left-3.5 top-3 h-4 w-4 text-slate-400" />
+              <Lock className="absolute left-3.5 top-3.5 h-4 w-4 text-slate-400" />
               <input
                 type="password"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your password"
-                className="w-full rounded-xl border border-champagne-300 py-2.5 pl-10 pr-4 text-xs focus:border-wedding-500 focus:outline-none focus:ring-1 focus:ring-wedding-500 bg-slate-50/50"
+                className="w-full rounded-2xl border border-champagne-300 py-3 pl-10 pr-4 text-xs font-semibold focus:border-wedding-500 focus:outline-none bg-slate-50/50"
               />
             </div>
           </div>
@@ -127,7 +128,7 @@ export default function SignInPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full inline-flex items-center justify-center rounded-xl bg-wedding-500 py-3 text-xs font-bold text-white shadow-md hover:bg-wedding-600 transition-all disabled:opacity-50 mt-2"
+            className="w-full inline-flex items-center justify-center rounded-2xl bg-wedding-500 py-3.5 text-xs font-bold uppercase tracking-wider text-white shadow-lg hover:bg-wedding-600 transition-all disabled:opacity-50 mt-2"
           >
             {loading ? (
               <>
@@ -141,12 +142,12 @@ export default function SignInPage() {
         </form>
 
         {/* Google sign-in */}
-        <div className="mt-5">
+        <div>
           <div className="relative my-4">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-slate-200" />
             </div>
-            <div className="relative flex justify-center text-[11px] uppercase tracking-wider text-slate-400">
+            <div className="relative flex justify-center text-[10px] uppercase tracking-wider text-slate-400 font-bold">
               <span className="bg-white px-2">Or continue with</span>
             </div>
           </div>
@@ -154,7 +155,7 @@ export default function SignInPage() {
           <button
             type="button"
             onClick={handleGoogleLogin}
-            className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 py-2.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
+            className="w-full inline-flex items-center justify-center gap-2 rounded-2xl border border-champagne-300 py-3 text-xs font-bold text-slate-700 hover:bg-slate-50 transition-colors shadow-sm"
           >
             <svg className="h-4 w-4" viewBox="0 0 24 24">
               <path
@@ -179,30 +180,30 @@ export default function SignInPage() {
         </div>
 
         {/* Demo Credentials Quick Fill Box for Evaluation */}
-        <div className="mt-6 rounded-2xl bg-wedding-50/70 border border-champagne-200 p-3.5 text-xs">
-          <p className="font-semibold text-slate-800 flex items-center gap-1.5 mb-2">
+        <div className="rounded-2xl bg-wedding-50/80 border border-champagne-300 p-4 text-xs space-y-2">
+          <p className="font-bold text-slate-800 flex items-center gap-1.5">
             <Sparkles className="h-3.5 w-3.5 text-wedding-600" />
-            Evaluation Demo Accounts
+            Evaluation Demo Credentials
           </p>
-          <div className="flex flex-wrap gap-1.5">
+          <div className="flex flex-wrap gap-2">
             <button
               type="button"
               onClick={() => handleQuickFill("admin@wedplan.com", "Admin123!")}
-              className="rounded-lg bg-white px-2.5 py-1 text-[11px] font-medium text-slate-700 border border-champagne-200 hover:border-wedding-400"
+              className="rounded-xl bg-white px-3 py-1.5 text-[11px] font-bold text-slate-700 border border-champagne-300 hover:border-wedding-500 hover:shadow-sm"
             >
-              Admin
+              Super Admin
             </button>
             <button
               type="button"
               onClick={() => handleQuickFill("vendor@wedplan.com", "Vendor123!")}
-              className="rounded-lg bg-white px-2.5 py-1 text-[11px] font-medium text-slate-700 border border-champagne-200 hover:border-wedding-400"
+              className="rounded-xl bg-white px-3 py-1.5 text-[11px] font-bold text-slate-700 border border-champagne-300 hover:border-wedding-500 hover:shadow-sm"
             >
-              Vendor
+              Vendor Pro
             </button>
             <button
               type="button"
               onClick={() => handleQuickFill("customer@wedplan.com", "Customer123!")}
-              className="rounded-lg bg-white px-2.5 py-1 text-[11px] font-medium text-slate-700 border border-champagne-200 hover:border-wedding-400"
+              className="rounded-xl bg-white px-3 py-1.5 text-[11px] font-bold text-slate-700 border border-champagne-300 hover:border-wedding-500 hover:shadow-sm"
             >
               Customer
             </button>
@@ -210,9 +211,9 @@ export default function SignInPage() {
         </div>
 
         {/* Footer */}
-        <p className="text-center text-xs text-slate-500 mt-6">
+        <p className="text-center text-xs text-slate-500 pt-2">
           Don't have an account yet?{" "}
-          <Link href="/sign-up" className="font-semibold text-wedding-600 hover:underline">
+          <Link href="/sign-up" className="font-bold text-wedding-600 hover:underline">
             Register here
           </Link>
         </p>

@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
+import { Logo } from "@/components/shared/Logo";
 import {
   LayoutDashboard,
   CalendarDays,
@@ -53,34 +54,41 @@ export function DashboardSidebar() {
   if (user.role === "admin") links = adminLinks;
 
   return (
-    <aside className="w-full lg:w-64 border-b lg:border-b-0 lg:border-r border-champagne-200 bg-white p-5 flex flex-col justify-between">
+    <aside className="w-full lg:w-72 border-b lg:border-b-0 lg:border-r border-champagne-300 bg-white p-6 flex flex-col justify-between shadow-sm">
       <div className="space-y-6">
+        {/* Brand Header */}
+        <div className="pb-4 border-b border-champagne-200">
+          <Logo size="sm" />
+        </div>
+
         {/* User Card */}
-        <div className="rounded-2xl border border-champagne-200 bg-wedding-50/70 p-4">
+        <div className="rounded-2xl border border-champagne-300 bg-wedding-50/70 p-4">
           <div className="flex items-center space-x-3">
             {user.image ? (
               <img
                 src={user.image}
                 alt={user.name}
-                className="h-11 w-11 rounded-full object-cover ring-2 ring-wedding-200"
+                className="h-11 w-11 rounded-full object-cover ring-2 ring-champagne-300"
               />
             ) : (
-              <div className="h-11 w-11 rounded-full bg-wedding-100 flex items-center justify-center font-bold text-wedding-700">
+              <div className="h-11 w-11 rounded-full bg-wedding-100 flex items-center justify-center font-bold text-wedding-700 text-sm">
                 {user.name.charAt(0)}
               </div>
             )}
             <div className="flex-1 min-w-0">
               <h3 className="text-xs font-bold text-slate-900 truncate">{user.name}</h3>
-              <div className="flex items-center gap-1 text-[11px] text-wedding-600 font-medium capitalize">
+              <div className="flex items-center gap-1 text-[11px] text-wedding-600 font-semibold capitalize">
                 <span>{user.role}</span>
                 {user.subscriptionPlan === "premium" && (
-                  <Sparkles className="h-3 w-3 text-amber-500 fill-amber-400" />
+                  <span className="inline-flex items-center gap-0.5 bg-amber-100 text-amber-800 px-1.5 py-0.2 rounded-full text-[9px] font-bold">
+                    PRO
+                  </span>
                 )}
               </div>
             </div>
           </div>
           {user.isBlocked && (
-            <div className="mt-2 text-[10px] text-red-600 font-semibold flex items-center gap-1">
+            <div className="mt-2 text-[10px] text-red-600 font-bold flex items-center gap-1">
               <ShieldAlert className="h-3 w-3" /> Account Restricted
             </div>
           )}
@@ -95,11 +103,10 @@ export function DashboardSidebar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`flex items-center space-x-3 rounded-xl px-3.5 py-2.5 text-xs font-semibold transition-all ${
-                  isActive
-                    ? "bg-wedding-500 text-white shadow-sm"
+                className={`flex items-center space-x-3 rounded-2xl px-4 py-3 text-xs font-bold tracking-wide transition-all ${isActive
+                    ? "bg-wedding-500 text-white shadow-md"
                     : "text-slate-600 hover:bg-wedding-50 hover:text-wedding-700"
-                }`}
+                  }`}
               >
                 <Icon className={`h-4 w-4 ${isActive ? "text-white" : "text-slate-400"}`} />
                 <span>{item.label}</span>
@@ -113,7 +120,7 @@ export function DashboardSidebar() {
       <div className="pt-6 border-t border-champagne-200 mt-6">
         <button
           onClick={logout}
-          className="flex w-full items-center space-x-2.5 rounded-xl px-3.5 py-2 text-xs font-semibold text-red-600 hover:bg-red-50 transition-colors"
+          className="flex w-full items-center space-x-2.5 rounded-2xl px-4 py-2.5 text-xs font-bold text-rose-600 hover:bg-rose-50 transition-colors"
         >
           <LogOut className="h-4 w-4" />
           <span>Sign Out</span>
