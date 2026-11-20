@@ -47,10 +47,9 @@ export function Destinations() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12">
           <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-wedding-600">
-              <MapPin className="h-4 w-4" />
-              <span>Iconic Locales</span>
-            </div>
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-wedding-600">
+              Iconic Locales
+            </p>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-900">
               Premier Wedding Destinations
             </h2>
