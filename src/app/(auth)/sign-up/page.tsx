@@ -13,9 +13,10 @@ import {
   User,
   Mail,
   Lock,
+  Eye,
+  EyeOff,
   Building,
   Loader2,
-  Sparkles,
 } from "lucide-react";
 
 export default function SignUpPage() {
@@ -26,6 +27,7 @@ export default function SignUpPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [businessName, setBusinessName] = useState("");
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string>("");
@@ -188,13 +190,24 @@ export default function SignUpPage() {
             <div className="relative">
               <Lock className="absolute left-3.5 top-3.5 h-4 w-4 text-slate-400" />
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Min 6 chars (Uppercase & lowercase)"
-                className="w-full rounded-2xl border border-champagne-300 py-3 pl-10 pr-4 text-xs font-semibold focus:border-wedding-500 focus:outline-none bg-slate-50/50"
+                className="w-full rounded-2xl border border-champagne-300 py-3 pl-10 pr-11 text-xs font-semibold focus:border-wedding-500 focus:outline-none bg-slate-50/50"
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3.5 top-3.5 text-slate-400 hover:text-slate-700 focus:outline-none"
+              >
+                {showPassword ? (
+                  <EyeOff className="h-4 w-4" />
+                ) : (
+                  <Eye className="h-4 w-4" />
+                )}
+              </button>
             </div>
             <p className="text-[10px] text-slate-400 mt-1">
               Rule: At least 6 characters with one uppercase & one lowercase letter.

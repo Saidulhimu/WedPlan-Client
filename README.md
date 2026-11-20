@@ -121,11 +121,11 @@ NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_your_stripe_publishable_key_here
 ## 🔐 Demo Credentials for Evaluation
 
 - **Super Admin**:
-  - Email: `admin@wedplan.com`
-  - Password: `Admin123!`
+  - Email: `saidulhimuu@gmail.com`
+  - Password: `Himel12345`
 - **Verified Vendor**:
-  - Email: `vendor@wedplan.com`
-  - Password: `Vendor123!`
+  - Email: `saidulislam5595@gmail.com`
+  - Password: `saidul12345`
 - **Customer**:
-  - Email: `customer@wedplan.com`
-  - Password: `Customer123!`
+  - Email: `hmcreationn@gmail.com`
+  - Password: `hm123456`
