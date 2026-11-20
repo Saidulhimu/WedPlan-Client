@@ -10,7 +10,7 @@ import { Destinations } from "@/components/home/Destinations";
 import { PlanningTips } from "@/components/home/PlanningTips";
 import { Testimonials } from "@/components/home/Testimonials";
 import { FaqSection } from "@/components/home/FaqSection";
-import { Sparkles, ArrowRight, Store } from "lucide-react";
+import { ArrowRight, Store } from "lucide-react";
 
 export default function HomePage() {
   return (
@@ -30,8 +30,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-gradient-to-r from-[#541618] via-[#7F1D1D] to-[#9E2A2B] text-white py-20">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-400/10 via-transparent to-transparent pointer-events-none" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl relative text-center space-y-6">
-          <div className="inline-flex items-center gap-2 rounded-full border border-amber-300/30 bg-white/10 px-4 py-1.5 text-xs font-semibold text-amber-200 backdrop-blur">
-            <Sparkles className="h-3.5 w-3.5 fill-amber-300 text-amber-300" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-amber-300/30 bg-white/10 px-5 py-2 text-xs font-semibold text-amber-200 backdrop-blur">
             <span>Join Over 2,400+ Wedding Professionals</span>
           </div>
 
