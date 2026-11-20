@@ -55,11 +55,10 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-semibold tracking-wide transition-colors hover:text-wedding-600 ${
-                  isActive
+                className={`text-sm font-semibold tracking-wide transition-colors hover:text-wedding-600 ${isActive
                     ? "text-wedding-600 font-bold border-b-2 border-wedding-600 pb-1"
                     : "text-slate-600"
-                }`}
+                  }`}
               >
                 {link.label}
               </Link>
@@ -182,9 +181,8 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`text-sm font-semibold py-1.5 ${
-                  pathname === link.href ? "text-wedding-600" : "text-slate-700"
-                }`}
+                className={`text-sm font-semibold py-1.5 ${pathname === link.href ? "text-wedding-600" : "text-slate-700"
+                  }`}
               >
                 {link.label}
               </Link>

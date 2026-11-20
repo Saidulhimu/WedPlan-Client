@@ -20,7 +20,7 @@ export function HeroBanner() {
 
       {/* Content strictly adhering to PDF Page 7 without any AI-generated icons or clutter */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center text-white max-w-4xl space-y-7">
-        
+
         {/* Subtle Category Tagline (Pure Typography) */}
         <p className="text-xs font-semibold tracking-[0.25em] uppercase text-stone-300">
           Curated Wedding Marketplace
