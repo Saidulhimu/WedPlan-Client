@@ -94,11 +94,10 @@ export function BudgetCalculator() {
                 key={preset.label}
                 type="button"
                 onClick={() => setTotalBudget(preset.amount)}
-                className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-all ${
-                  totalBudget === preset.amount
+                className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-all ${totalBudget === preset.amount
                     ? "bg-wedding-600 text-white shadow-sm"
                     : "bg-white text-slate-600 border border-stone-200 hover:border-wedding-400"
-                }`}
+                  }`}
               >
                 {preset.label} ({formatPrice(preset.amount)})
               </button>
@@ -109,7 +108,7 @@ export function BudgetCalculator() {
         {/* Main Calculator Card */}
         <div className="rounded-3xl border border-stone-200 bg-white p-8 sm:p-10 lg:p-12 shadow-xl shadow-stone-900/5">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
+
             {/* Slider & Budget Controller (5 Cols) */}
             <div className="lg:col-span-5 space-y-6">
               <div className="space-y-1">

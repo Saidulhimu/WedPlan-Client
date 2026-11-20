@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { Star, ShieldCheck, HeartHandshake } from "lucide-react";
 
 const reviews = [

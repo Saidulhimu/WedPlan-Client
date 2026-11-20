@@ -59,11 +59,10 @@ export function FaqSection() {
             return (
               <div
                 key={faq.num}
-                className={`rounded-3xl border transition-all duration-300 overflow-hidden ${
-                  isOpen
+                className={`rounded-3xl border transition-all duration-300 overflow-hidden ${isOpen
                     ? "border-wedding-400 bg-white shadow-lg ring-1 ring-wedding-300/30"
                     : "border-stone-200 bg-white hover:border-stone-300 shadow-sm"
-                }`}
+                  }`}
               >
                 <button
                   type="button"
@@ -79,11 +78,10 @@ export function FaqSection() {
                     </span>
                   </div>
                   <div
-                    className={`h-8 w-8 rounded-full flex items-center justify-center border transition-all duration-300 shrink-0 ${
-                      isOpen
+                    className={`h-8 w-8 rounded-full flex items-center justify-center border transition-all duration-300 shrink-0 ${isOpen
                         ? "bg-wedding-600 text-white border-wedding-600 rotate-180"
                         : "bg-stone-50 text-slate-400 border-stone-200"
-                    }`}
+                      }`}
                   >
                     <ChevronDown className="h-4 w-4" />
                   </div>

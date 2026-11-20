@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import { Logo } from "@/components/shared/Logo";
 import { Mail, Phone, MapPin, Instagram, Facebook, Twitter } from "lucide-react";
