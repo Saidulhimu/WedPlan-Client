@@ -1,9 +1,10 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
+import { Logo } from "@/components/shared/Logo";
 import {
   Menu,
   X,
@@ -43,13 +44,8 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-stone-200/90 bg-white/95 backdrop-blur-md transition-all shadow-sm">
       <div className="container mx-auto flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Clean Typographic Luxury Logo (Strictly no generated icons) */}
-        <Link href="/" className="group flex items-center space-x-2">
-          <span className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 transition-colors group-hover:text-wedding-600">
-            Wed<span className="text-wedding-600 italic">Plan</span>
-          </span>
-          <span className="h-1.5 w-1.5 rounded-full bg-wedding-600 mt-2" />
-        </Link>
+        {/* Professional Luxury Logo */}
+        <Logo size="sm" />
 
         {/* Public Routes according to PDF */}
         <nav className="hidden md:flex items-center space-x-8">

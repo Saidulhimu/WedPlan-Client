@@ -62,7 +62,7 @@ export function FeaturedServices() {
 
         {/* Quick Category Filter Pills */}
         <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 text-xs font-semibold">
-          {["All", "Venues", "Photography", "Florist", "Catering", "Styling"].map((pill) => (
+          {["All", "Venues", "Photography", "Florist", "Catering", "Styling", "Fashion"].map((pill) => (
             <button
               key={pill}
               onClick={() => setFilter(pill)}
