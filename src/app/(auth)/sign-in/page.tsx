@@ -54,22 +54,19 @@ export default function SignInPage() {
     toast.info(`Filled credentials for ${demoEmail}`);
   };
 
-  const handleGoogleLogin = async () => {
+  const handleGoogleLogin = () => {
     try {
       setLoading(true);
-      const { data } = await api.post("/auth/google", {
-        name: "Google Customer",
-        email: "google.user@example.com",
-        role: "customer",
-      });
-      if (data.success) {
-        toast.success("Signed in with Google successfully!");
-        login(data.token, data.user);
-        router.push("/dashboard/customer");
-      }
+      const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "";
+      const redirectUri = `${window.location.origin}/api/auth/callback/google`;
+      const scope = encodeURIComponent("openid email profile");
+      const state = "customer";
+      const googleAuthUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${encodeURIComponent(
+        redirectUri
+      )}&response_type=code&scope=${scope}&state=${state}&prompt=select_account`;
+      window.location.href = googleAuthUrl;
     } catch (err: any) {
-      toast.error(err.message || "Google sign in failed");
-    } finally {
+      toast.error(err.message || "Failed to initiate Google sign in");
       setLoading(false);
     }
   };
