@@ -65,13 +65,11 @@ export function ServiceCard({ service }: ServiceCardProps) {
           </span>
 
           {isPremiumVendor ? (
-            <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 px-3 py-1 text-[11px] font-bold text-white shadow-lg">
-              <Sparkles className="h-3 w-3 fill-white" />
-              Signature Pro
+            <span className="rounded-full bg-amber-600 px-2.5 py-0.5 text-[10px] font-bold tracking-wider uppercase text-white shadow-sm">
+              Premium Vendor
             </span>
           ) : (
-            <span className="inline-flex items-center gap-1 rounded-full bg-slate-900/80 px-2.5 py-0.5 text-[10px] font-semibold text-white backdrop-blur">
-              <ShieldCheck className="h-3 w-3 text-emerald-400" />
+            <span className="rounded-full bg-slate-900/80 px-2.5 py-0.5 text-[10px] font-semibold text-white backdrop-blur">
               Verified
             </span>
           )}

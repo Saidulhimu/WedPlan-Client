@@ -67,10 +67,9 @@ export function CategoriesGrid() {
     <section className="py-20 bg-gradient-to-b from-white via-[#FDFBF7] to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
-          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-wedding-600">
-            <Sparkles className="h-3.5 w-3.5" />
-            <span>Comprehensive Directory</span>
-          </div>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-wedding-600">
+            Comprehensive Directory
+          </p>
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-900">
             Explore By Wedding Category
           </h2>

@@ -40,10 +40,9 @@ export function FeaturedServices() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10">
           <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-wedding-600">
-              <Award className="h-4 w-4" />
-              <span>Curated Excellence</span>
-            </div>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-wedding-600">
+              Curated Excellence
+            </p>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-900">
               Featured Wedding Services
             </h2>
@@ -67,8 +66,8 @@ export function FeaturedServices() {
               key={pill}
               onClick={() => setFilter(pill)}
               className={`rounded-full px-4 py-2 transition-all ${filter === pill
-                  ? "bg-wedding-500 text-white shadow-sm"
-                  : "bg-wedding-50 text-slate-600 border border-champagne-300 hover:border-wedding-400 hover:text-slate-900"
+                ? "bg-wedding-500 text-white shadow-sm"
+                : "bg-wedding-50 text-slate-600 border border-champagne-300 hover:border-wedding-400 hover:text-slate-900"
                 }`}
             >
               {pill === "All" ? "All Featured Services" : pill}

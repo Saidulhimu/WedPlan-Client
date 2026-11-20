@@ -42,10 +42,9 @@ export function WhyChooseUs() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-wedding-600">
-            <Award className="h-4 w-4" />
-            <span>The WedPlan Distinction</span>
-          </div>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-wedding-600">
+            The WedPlan Distinction
+          </p>
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-900">
             Why Discerning Couples Choose WedPlan
           </h2>
