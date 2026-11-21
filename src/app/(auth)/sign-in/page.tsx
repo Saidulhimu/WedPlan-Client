@@ -20,9 +20,7 @@ export default function SignInPage() {
 
   useEffect(() => {
     if (user && !isLoading) {
-      if (user.role === "admin") router.replace("/dashboard/admin");
-      else if (user.role === "vendor") router.replace("/dashboard/vendor");
-      else router.replace("/dashboard/customer");
+      router.replace("/");
     }
   }, [user, isLoading, router]);
 
@@ -39,15 +37,7 @@ export default function SignInPage() {
       if (data.success) {
         toast.success("Welcome back to WedPlan!");
         login(data.token, data.user);
-
-        // Redirect according to role
-        if (data.user.role === "admin") {
-          router.push("/dashboard/admin");
-        } else if (data.user.role === "vendor") {
-          router.push("/dashboard/vendor");
-        } else {
-          router.push("/dashboard/customer");
-        }
+        router.push("/");
       }
     } catch (err: any) {
       toast.error(err.message || "Invalid credentials. Please verify your email and password.");

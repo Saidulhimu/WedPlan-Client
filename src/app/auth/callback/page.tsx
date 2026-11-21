@@ -30,14 +30,8 @@ function CallbackHandler() {
         login(token, user);
         toast.success(`Welcome to WedPlan, ${user.name}!`);
 
-        const destination =
-          user.role === "admin"
-            ? "/dashboard/admin"
-            : user.role === "vendor"
-              ? "/dashboard/vendor"
-              : "/dashboard/customer";
-
-        window.location.replace(destination);
+        // Redirect to Home route ("/")
+        window.location.replace("/");
       } catch (err) {
         console.error("Failed to parse Google user session:", err);
         toast.error("Session verification failed. Please sign in again.");

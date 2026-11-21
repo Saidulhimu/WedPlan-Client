@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { Logo } from "@/components/shared/Logo";
+import { UserAvatar } from "@/components/shared/UserAvatar";
 import {
   LayoutDashboard,
   CalendarDays,
@@ -64,17 +65,7 @@ export function DashboardSidebar() {
         {/* User Card */}
         <div className="rounded-2xl border border-champagne-300 bg-wedding-50/70 p-4">
           <div className="flex items-center space-x-3">
-            {user.image ? (
-              <img
-                src={user.image}
-                alt={user.name}
-                className="h-11 w-11 rounded-full object-cover ring-2 ring-champagne-300"
-              />
-            ) : (
-              <div className="h-11 w-11 rounded-full bg-wedding-100 flex items-center justify-center font-bold text-wedding-700 text-sm">
-                {user.name.charAt(0)}
-              </div>
-            )}
+            <UserAvatar src={user.image} name={user.name} size="lg" />
             <div className="flex-1 min-w-0">
               <h3 className="text-xs font-bold text-slate-900 truncate">{user.name}</h3>
               <div className="flex items-center gap-1 text-[11px] text-wedding-600 font-semibold capitalize">
@@ -104,8 +95,8 @@ export function DashboardSidebar() {
                 key={item.href}
                 href={item.href}
                 className={`flex items-center space-x-3 rounded-2xl px-4 py-3 text-xs font-bold tracking-wide transition-all ${isActive
-                    ? "bg-wedding-500 text-white shadow-md"
-                    : "text-slate-600 hover:bg-wedding-50 hover:text-wedding-700"
+                  ? "bg-wedding-500 text-white shadow-md"
+                  : "text-slate-600 hover:bg-wedding-50 hover:text-wedding-700"
                   }`}
               >
                 <Icon className={`h-4 w-4 ${isActive ? "text-white" : "text-slate-400"}`} />

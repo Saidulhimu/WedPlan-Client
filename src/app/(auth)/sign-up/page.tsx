@@ -35,9 +35,7 @@ export default function SignUpPage() {
 
   useEffect(() => {
     if (user && !isLoading) {
-      if (user.role === "admin") router.replace("/dashboard/admin");
-      else if (user.role === "vendor") router.replace("/dashboard/vendor");
-      else router.replace("/dashboard/customer");
+      router.replace("/");
     }
   }, [user, isLoading, router]);
 
@@ -83,11 +81,7 @@ export default function SignUpPage() {
         toast.success("Account created successfully! Welcome to WedPlan.");
         login(data.token, data.user);
 
-        if (data.user.role === "vendor") {
-          router.push("/dashboard/vendor");
-        } else {
-          router.push("/dashboard/customer");
-        }
+        router.push("/");
       }
     } catch (err: any) {
       toast.error(err.message || "Registration failed. Please check your credentials.");

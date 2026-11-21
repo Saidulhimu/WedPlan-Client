@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { Logo } from "@/components/shared/Logo";
+import { UserAvatar } from "@/components/shared/UserAvatar";
 import {
   Menu,
   X,
@@ -56,8 +57,8 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={`text-sm font-semibold tracking-wide transition-colors hover:text-wedding-600 ${isActive
-                    ? "text-wedding-600 font-bold border-b-2 border-wedding-600 pb-1"
-                    : "text-slate-600"
+                  ? "text-wedding-600 font-bold border-b-2 border-wedding-600 pb-1"
+                  : "text-slate-600"
                   }`}
               >
                 {link.label}
@@ -74,17 +75,7 @@ export function Navbar() {
                 onClick={() => setDropdownOpen(!dropdownOpen)}
                 className="flex items-center space-x-3 rounded-full border border-stone-200 bg-white py-1.5 pl-2 pr-3.5 shadow-sm hover:border-wedding-400 hover:shadow transition-all focus:outline-none"
               >
-                {user.image ? (
-                  <img
-                    src={user.image}
-                    alt={user.name}
-                    className="h-9 w-9 rounded-full object-cover ring-1 ring-stone-200"
-                  />
-                ) : (
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-stone-100 text-stone-800 font-bold text-xs">
-                    {user.name.charAt(0).toUpperCase()}
-                  </div>
-                )}
+                <UserAvatar src={user.image} name={user.name} size="md" />
                 <div className="text-left text-xs">
                   <div className="font-bold text-slate-900 line-clamp-1">{user.name}</div>
                   <div className="text-[10px] capitalize text-wedding-600 font-semibold">

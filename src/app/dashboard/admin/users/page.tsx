@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { User } from "@/types";
 import { api } from "@/lib/api";
 import { formatDate } from "@/lib/utils";
+import { UserAvatar } from "@/components/shared/UserAvatar";
 import { toast } from "sonner";
 import {
   Users,
@@ -125,17 +126,7 @@ export default function AdminUsersPage() {
                   <tr key={u._id} className="hover:bg-slate-50/50 transition-colors">
                     <td className="py-4 px-6">
                       <div className="flex items-center space-x-3">
-                        {u.image ? (
-                          <img
-                            src={u.image}
-                            alt={u.name}
-                            className="h-9 w-9 rounded-full object-cover ring-1 ring-slate-200"
-                          />
-                        ) : (
-                          <div className="h-9 w-9 rounded-full bg-wedding-100 flex items-center justify-center font-bold text-wedding-700">
-                            {u.name.charAt(0)}
-                          </div>
-                        )}
+                        <UserAvatar src={u.image} name={u.name} size="md" />
                         <div>
                           <p className="font-bold text-slate-900">{u.name}</p>
                           <p className="text-[11px] text-slate-400">{u.email}</p>
@@ -152,11 +143,10 @@ export default function AdminUsersPage() {
                     </td>
                     <td className="py-4 px-6">
                       <span
-                        className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[10px] font-bold capitalize ${
-                          u.subscriptionPlan === "premium"
+                        className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[10px] font-bold capitalize ${u.subscriptionPlan === "premium"
                             ? "bg-amber-100 text-amber-800"
                             : "bg-slate-100 text-slate-600"
-                        }`}
+                          }`}
                       >
                         {u.subscriptionPlan === "premium" && (
                           <Sparkles className="h-3 w-3 fill-amber-500 text-amber-500" />
@@ -183,11 +173,10 @@ export default function AdminUsersPage() {
                         <button
                           onClick={() => handleToggleBlock(u._id, u.isBlocked)}
                           disabled={actionLoadingId === u._id}
-                          className={`rounded-xl px-3 py-1 text-xs font-semibold transition-colors ${
-                            u.isBlocked
+                          className={`rounded-xl px-3 py-1 text-xs font-semibold transition-colors ${u.isBlocked
                               ? "bg-emerald-50 text-emerald-700 hover:bg-emerald-100"
                               : "bg-red-50 text-red-700 hover:bg-red-100"
-                          }`}
+                            }`}
                         >
                           {u.isBlocked ? "Unblock User" : "Block User"}
                         </button>

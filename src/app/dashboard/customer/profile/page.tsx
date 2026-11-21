@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
@@ -73,6 +73,7 @@ export default function CustomerProfilePage() {
                 <img
                   src={imagePreview}
                   alt="Avatar"
+                  referrerPolicy="no-referrer"
                   className="h-16 w-16 rounded-full object-cover ring-2 ring-wedding-300"
                 />
               ) : (
