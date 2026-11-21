@@ -120,9 +120,6 @@ NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_your_stripe_publishable_key_here
 
 ## 🔐 Demo Credentials for Evaluation
 
-- **Super Admin**:
-  - Email: `saidulhimuu@gmail.com`
-  - Password: `Himel12345`
 - **Verified Vendor**:
   - Email: `saidulislam5595@gmail.com`
   - Password: `saidul12345`
