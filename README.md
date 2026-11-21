@@ -113,8 +113,8 @@ NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_your_stripe_publishable_key_here
 
 - **Client Repository**: [https://github.com/Saidulhimu/WedPlan-Client](https://github.com/Saidulhimu/WedPlan-Client)
 - **Server Repository**: [https://github.com/Saidulhimu/WedPlan-Server](https://github.com/Saidulhimu/WedPlan-Server)
-- **Live Client Application**: [https://wedplan-client.vercel.app](https://wedplan-client.vercel.app)
-- **Live Backend Server API**: [https://wedplan-server.onrender.com](https://wedplan-server.onrender.com)
+- **Live Client Application**: [https://wed-plan-client-omega.vercel.app](https://wed-plan-client-omega.vercel.app)
+- **Live Backend Server API**: [https://wed-plan-server-omega.vercel.app](https://wed-plan-server-omega.vercel.app)
 
 ---
 
