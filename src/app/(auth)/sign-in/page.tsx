@@ -46,12 +46,6 @@ export default function SignInPage() {
     }
   };
 
-  const handleQuickFill = (demoEmail: string, demoPass: string) => {
-    setEmail(demoEmail);
-    setPassword(demoPass);
-    toast.info(`Filled credentials for ${demoEmail}`);
-  };
-
   const handleGoogleLogin = () => {
     try {
       setLoading(true);
@@ -186,35 +180,6 @@ export default function SignInPage() {
           </button>
         </div>
 
-        {/* Demo Credentials Quick Fill Box for Evaluation */}
-        <div className="rounded-2xl bg-wedding-50/80 border border-champagne-300 p-4 text-xs space-y-2">
-          <p className="font-bold text-slate-800 text-[11px] uppercase tracking-wider">
-            Quick Fill Demo Credentials
-          </p>
-          <div className="flex flex-wrap gap-2">
-            <button
-              type="button"
-              onClick={() => handleQuickFill("saidulhimuu@gmail.com", "Himel12345")}
-              className="rounded-xl bg-white px-3 py-1.5 text-[11px] font-bold text-slate-700 border border-champagne-300 hover:border-wedding-500 hover:text-wedding-600 hover:shadow-sm transition-all"
-            >
-              Super Admin
-            </button>
-            <button
-              type="button"
-              onClick={() => handleQuickFill("saidulislam5595@gmail.com", "saidul12345")}
-              className="rounded-xl bg-white px-3 py-1.5 text-[11px] font-bold text-slate-700 border border-champagne-300 hover:border-wedding-500 hover:text-wedding-600 hover:shadow-sm transition-all"
-            >
-              Vendor
-            </button>
-            <button
-              type="button"
-              onClick={() => handleQuickFill("hmcreationn@gmail.com", "hm123456")}
-              className="rounded-xl bg-white px-3 py-1.5 text-[11px] font-bold text-slate-700 border border-champagne-300 hover:border-wedding-500 hover:text-wedding-600 hover:shadow-sm transition-all"
-            >
-              Customer
-            </button>
-          </div>
-        </div>
 
         {/* Footer */}
         <p className="text-center text-xs text-slate-500 pt-2">
