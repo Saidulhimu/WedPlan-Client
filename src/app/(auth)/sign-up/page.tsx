@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
@@ -21,7 +21,7 @@ import {
 
 export default function SignUpPage() {
   const router = useRouter();
-  const { login } = useAuth();
+  const { login, user, isLoading } = useAuth();
 
   const [role, setRole] = useState<"customer" | "vendor">("customer");
   const [name, setName] = useState("");
@@ -32,6 +32,14 @@ export default function SignUpPage() {
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string>("");
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (user && !isLoading) {
+      if (user.role === "admin") router.replace("/dashboard/admin");
+      else if (user.role === "vendor") router.replace("/dashboard/vendor");
+      else router.replace("/dashboard/customer");
+    }
+  }, [user, isLoading, router]);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -127,8 +135,8 @@ export default function SignUpPage() {
             type="button"
             onClick={() => setRole("customer")}
             className={`py-2.5 text-xs font-bold rounded-xl transition-all ${role === "customer"
-                ? "bg-white text-wedding-600 shadow-sm"
-                : "text-slate-500 hover:text-slate-900"
+              ? "bg-white text-wedding-600 shadow-sm"
+              : "text-slate-500 hover:text-slate-900"
               }`}
           >
             I am a Couple / Customer
@@ -137,8 +145,8 @@ export default function SignUpPage() {
             type="button"
             onClick={() => setRole("vendor")}
             className={`py-2.5 text-xs font-bold rounded-xl transition-all ${role === "vendor"
-                ? "bg-white text-wedding-600 shadow-sm"
-                : "text-slate-500 hover:text-slate-900"
+              ? "bg-white text-wedding-600 shadow-sm"
+              : "text-slate-500 hover:text-slate-900"
               }`}
           >
             I am a Wedding Vendor

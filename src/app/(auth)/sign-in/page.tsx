@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
@@ -11,12 +11,20 @@ import { Mail, Lock, Eye, EyeOff, Loader2 } from "lucide-react";
 
 export default function SignInPage() {
   const router = useRouter();
-  const { login } = useAuth();
+  const { login, user, isLoading } = useAuth();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (user && !isLoading) {
+      if (user.role === "admin") router.replace("/dashboard/admin");
+      else if (user.role === "vendor") router.replace("/dashboard/vendor");
+      else router.replace("/dashboard/customer");
+    }
+  }, [user, isLoading, router]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

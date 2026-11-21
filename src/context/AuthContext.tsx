@@ -55,29 +55,41 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     initAuth();
   }, []);
 
-  const login = (newToken: string, newUser: User) => {
+  const login = React.useCallback((newToken: string, newUser: User) => {
     setToken(newToken);
     setUser(newUser);
-    localStorage.setItem("wedplan_token", newToken);
-    localStorage.setItem("wedplan_user", JSON.stringify(newUser));
-  };
+    try {
+      localStorage.setItem("wedplan_token", newToken);
+      localStorage.setItem("wedplan_user", JSON.stringify(newUser));
+    } catch (e) {
+      console.error("Failed to persist auth token:", e);
+    }
+  }, []);
 
-  const logout = () => {
+  const logout = React.useCallback(() => {
     setToken(null);
     setUser(null);
-    localStorage.removeItem("wedplan_token");
-    localStorage.removeItem("wedplan_user");
+    try {
+      localStorage.removeItem("wedplan_token");
+      localStorage.removeItem("wedplan_user");
+    } catch (e) {
+      console.error("Failed to clear auth token:", e);
+    }
     window.location.href = "/sign-in";
-  };
+  }, []);
 
-  const updateUser = (updatedFields: Partial<User>) => {
+  const updateUser = React.useCallback((updatedFields: Partial<User>) => {
     setUser((prev) => {
       if (!prev) return null;
       const updated = { ...prev, ...updatedFields };
-      localStorage.setItem("wedplan_user", JSON.stringify(updated));
+      try {
+        localStorage.setItem("wedplan_user", JSON.stringify(updated));
+      } catch (e) {
+        console.error("Failed to persist updated user:", e);
+      }
       return updated;
     });
-  };
+  }, []);
 
   return (
     <AuthContext.Provider

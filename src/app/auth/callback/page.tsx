@@ -1,47 +1,57 @@
 "use client";
 
-import React, { useEffect, Suspense } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import React, { useEffect, useRef, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { Logo } from "@/components/shared/Logo";
 import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
 
 function CallbackHandler() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const { login } = useAuth();
+  const processedRef = useRef(false);
 
   useEffect(() => {
+    if (processedRef.current) return;
     const token = searchParams.get("token");
     const userJson = searchParams.get("user");
 
     if (token && userJson) {
+      processedRef.current = true;
       try {
-        const user = JSON.parse(decodeURIComponent(userJson));
+        let user: any;
+        try {
+          user = JSON.parse(userJson);
+        } catch {
+          user = JSON.parse(decodeURIComponent(userJson));
+        }
+
         login(token, user);
         toast.success(`Welcome to WedPlan, ${user.name}!`);
 
-        if (user.role === "admin") {
-          router.replace("/dashboard/admin");
-        } else if (user.role === "vendor") {
-          router.replace("/dashboard/vendor");
-        } else {
-          router.replace("/dashboard/customer");
-        }
+        const destination =
+          user.role === "admin"
+            ? "/dashboard/admin"
+            : user.role === "vendor"
+              ? "/dashboard/vendor"
+              : "/dashboard/customer";
+
+        window.location.replace(destination);
       } catch (err) {
         console.error("Failed to parse Google user session:", err);
         toast.error("Session verification failed. Please sign in again.");
-        router.replace("/sign-in");
+        window.location.replace("/sign-in");
       }
     } else {
+      processedRef.current = true;
       const errorMsg = searchParams.get("error");
       if (errorMsg) {
         toast.error(decodeURIComponent(errorMsg));
       }
-      router.replace("/sign-in");
+      window.location.replace("/sign-in");
     }
-  }, [searchParams, login, router]);
+  }, [searchParams, login]);
 
   return (
     <div className="min-h-screen bg-[#FDFBF7] flex flex-col items-center justify-center px-4">
