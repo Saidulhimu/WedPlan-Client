@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { BookOpen, Clock, ArrowRight, Sparkles } from "lucide-react";
+import { BookOpen, Clock, ArrowRight } from "lucide-react";
 
 const articles = [
   {

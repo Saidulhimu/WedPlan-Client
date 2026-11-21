@@ -11,7 +11,7 @@ import {
   MapPin,
   Tag,
   Calendar,
-  Sparkles,
+  BadgeCheck,
   ShieldCheck,
   Send,
   Building,
@@ -378,7 +378,7 @@ export default function ServiceDetailsPage() {
                       <span>{vendor.businessName || vendor.name}</span>
                       {vendor.subscriptionPlan === "premium" && (
                         <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 text-amber-800 px-2.5 py-0.5 text-[10px] font-bold">
-                          <Sparkles className="h-3 w-3 fill-amber-500 text-amber-500" />
+                          <BadgeCheck className="h-3.5 w-3.5 text-amber-700" />
                           Signature Pro
                         </span>
                       )}

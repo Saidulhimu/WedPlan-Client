@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
@@ -10,7 +10,8 @@ import {
   Layers,
   Clock,
   CheckCircle2,
-  Sparkles,
+  BadgeCheck,
+  Crown,
   ArrowRight,
   PlusCircle,
 } from "lucide-react";
@@ -55,8 +56,8 @@ export default function VendorOverviewPage() {
             <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-wedding-600">
               <span>Vendor Hub</span>
               {isPremium && (
-                <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 text-amber-800 px-2 py-0.5 text-[10px] font-bold">
-                  <Sparkles className="h-3 w-3 fill-amber-500" />
+                <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 text-amber-800 px-2.5 py-0.5 text-[10px] font-bold">
+                  <BadgeCheck className="h-3.5 w-3.5 text-amber-600" />
                   Premium Verified
                 </span>
               )}
@@ -85,7 +86,7 @@ export default function VendorOverviewPage() {
         <div className="rounded-2xl border border-amber-200 bg-amber-50/80 p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1">
             <h3 className="text-xs font-bold text-amber-900 flex items-center gap-1.5">
-              <Sparkles className="h-4 w-4 text-amber-600" />
+              <Crown className="h-4 w-4 text-amber-600" />
               Free Tier: Limited to 3 Active Services ({activeServices}/3 Used)
             </h3>
             <p className="text-[11px] text-amber-700">
@@ -138,7 +139,7 @@ export default function VendorOverviewPage() {
         <div className="rounded-2xl border border-champagne-200 bg-white p-5 shadow-sm">
           <div className="flex items-center justify-between text-wedding-600 mb-2">
             <span className="text-xs font-semibold">Current Plan</span>
-            <Sparkles className="h-4 w-4 text-amber-500" />
+            <Crown className="h-4 w-4 text-amber-600" />
           </div>
           <p className="font-serif text-2xl font-bold text-slate-900 capitalize">
             {user?.subscriptionPlan}

@@ -5,7 +5,7 @@ import { Transaction } from "@/types";
 import { api } from "@/lib/api";
 import { formatPrice, formatDate } from "@/lib/utils";
 import { toast } from "sonner";
-import { Receipt, CheckCircle2, Loader2, Sparkles } from "lucide-react";
+import { Receipt, CheckCircle2, Loader2, Crown } from "lucide-react";
 
 export default function AdminTransactionsPage() {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
@@ -68,7 +68,7 @@ export default function AdminTransactionsPage() {
                     </td>
                     <td className="py-4 px-6 capitalize">
                       <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 text-amber-800 px-2.5 py-0.5 text-[10px] font-bold">
-                        <Sparkles className="h-3 w-3 fill-amber-500 text-amber-500" />
+                        <Crown className="h-3 w-3 text-amber-700" />
                         {t.plan}
                       </span>
                     </td>

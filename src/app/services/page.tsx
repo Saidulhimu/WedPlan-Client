@@ -9,7 +9,6 @@ import {
   ArrowUpDown,
   Tag,
   MapPin,
-  Sparkles,
   SlidersHorizontal,
   DollarSign,
   RotateCcw,
@@ -119,8 +118,8 @@ export default function BrowseServicesPage() {
               key={c}
               onClick={() => setSelectedCategory(c)}
               className={`rounded-full px-4 py-2 whitespace-nowrap transition-all ${selectedCategory === c
-                  ? "bg-wedding-500 text-white shadow-md font-bold"
-                  : "bg-white text-slate-600 border border-champagne-300 hover:border-wedding-400 hover:text-slate-900"
+                ? "bg-wedding-500 text-white shadow-md font-bold"
+                : "bg-white text-slate-600 border border-champagne-300 hover:border-wedding-400 hover:text-slate-900"
                 }`}
             >
               {c === "All" ? "All Categories" : c}

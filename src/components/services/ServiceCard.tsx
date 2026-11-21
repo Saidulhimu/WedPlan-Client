@@ -9,7 +9,6 @@ import {
   MapPin,
   Tag,
   ArrowUpRight,
-  Sparkles,
   Star,
   ShieldCheck,
   Calendar,

@@ -1,11 +1,11 @@
-﻿"use client";
+"use client";
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Service } from "@/types";
 import { api } from "@/lib/api";
 import { ServiceCard } from "@/components/services/ServiceCard";
-import { ArrowRight, Sparkles, Award } from "lucide-react";
+import { ArrowRight, Award } from "lucide-react";
 
 export function FeaturedServices() {
   const [services, setServices] = useState<Service[]>([]);

@@ -6,7 +6,9 @@ import { useAuth } from "@/context/AuthContext";
 import { api } from "@/lib/api";
 import { toast } from "sonner";
 import {
-  Sparkles,
+  BadgeCheck,
+  Crown,
+  Award,
   CheckCircle2,
   ShieldCheck,
   CreditCard,
@@ -46,7 +48,7 @@ export default function VendorSubscriptionPage() {
       {/* Header */}
       <div className="space-y-1.5">
         <div className="inline-flex items-center gap-1.5 rounded-full bg-wedding-100/70 border border-wedding-200 px-3.5 py-1 text-[11px] font-bold text-wedding-800 uppercase tracking-wider">
-          <Sparkles className="h-3.5 w-3.5 fill-wedding-600 text-wedding-600" />
+          <BadgeCheck className="h-3.5 w-3.5 text-wedding-600" />
           Vendor Monetization & Pro Privileges
         </div>
         <h1 className="font-serif text-3xl font-bold text-slate-900 tracking-tight">
@@ -62,7 +64,7 @@ export default function VendorSubscriptionPage() {
         <div className="rounded-3xl border border-amber-300/80 bg-gradient-to-r from-amber-50/90 via-wedding-50/50 to-white p-6 shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-start sm:items-center space-x-4">
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 text-white shadow-md">
-              <Sparkles className="h-6 w-6 fill-white" />
+              <Crown className="h-6 w-6 text-white" />
             </div>
             <div>
               <div className="flex items-center gap-2">
@@ -102,11 +104,10 @@ export default function VendorSubscriptionPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
         {/* Free Plan Card */}
         <div
-          className={`rounded-3xl border p-8 flex flex-col justify-between transition-all ${
-            !isPremium
+          className={`rounded-3xl border p-8 flex flex-col justify-between transition-all ${!isPremium
               ? "border-wedding-300 bg-white shadow-lg ring-2 ring-wedding-100"
               : "border-champagne-200 bg-white shadow-sm opacity-80"
-          }`}
+            }`}
         >
           <div className="space-y-6">
             <div>
@@ -164,15 +165,14 @@ export default function VendorSubscriptionPage() {
 
         {/* Premium Plan Card */}
         <div
-          className={`relative rounded-3xl border p-8 flex flex-col justify-between transition-all ${
-            isPremium
+          className={`relative rounded-3xl border p-8 flex flex-col justify-between transition-all ${isPremium
               ? "border-amber-400 bg-gradient-to-b from-amber-50/40 via-white to-white shadow-xl ring-2 ring-amber-300"
               : "border-wedding-500 bg-gradient-to-b from-wedding-50/80 via-champagne-50/40 to-white shadow-2xl ring-2 ring-wedding-300/50"
-          }`}
+            }`}
         >
           <div className="absolute -top-3.5 right-6">
-            <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 px-4 py-1 text-[11px] font-bold text-white shadow-md">
-              <Sparkles className="h-3 w-3 fill-white" />
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 px-4 py-1 text-[11px] font-bold text-white shadow-md">
+              <Award className="h-3.5 w-3.5 text-white" />
               Most Popular • Recommended
             </span>
           </div>

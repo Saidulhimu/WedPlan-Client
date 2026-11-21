@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -17,7 +17,6 @@ import {
   Layers,
   Receipt,
   Settings,
-  Sparkles,
   LogOut,
   ShieldAlert,
 } from "lucide-react";

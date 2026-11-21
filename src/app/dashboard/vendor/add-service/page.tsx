@@ -9,7 +9,6 @@ import { toast } from "sonner";
 import {
   Store,
   Upload,
-  Sparkles,
   Loader2,
   DollarSign,
   MapPin,

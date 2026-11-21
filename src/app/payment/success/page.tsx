@@ -8,7 +8,8 @@ import { useAuth } from "@/context/AuthContext";
 import { Logo } from "@/components/shared/Logo";
 import {
   CheckCircle2,
-  Sparkles,
+  BadgeCheck,
+  Crown,
   ArrowRight,
   Loader2,
   ShieldCheck,
@@ -97,13 +98,13 @@ function PaymentSuccessContent() {
                 <CheckCircle2 className="h-10 w-10 stroke-[2.5]" />
               </div>
               <div className="absolute -top-1 -right-1 flex h-7 w-7 items-center justify-center rounded-full bg-amber-400 text-slate-900 shadow-md">
-                <Sparkles className="h-4 w-4 fill-white text-amber-800" />
+                <Crown className="h-4 w-4 text-amber-900" />
               </div>
             </div>
 
             <div className="space-y-1.5">
               <div className="inline-flex items-center gap-1.5 rounded-full bg-amber-100/80 border border-amber-300/60 px-4 py-1 text-[11px] font-bold text-amber-900 uppercase tracking-wider">
-                <Sparkles className="h-3.5 w-3.5 fill-amber-500 text-amber-600" />
+                <BadgeCheck className="h-4 w-4 text-amber-700" />
                 Verified Pro Activated
               </div>
               <h1 className="font-serif text-3xl font-bold text-slate-900 tracking-tight">
@@ -184,8 +185,8 @@ function PaymentSuccessContent() {
               </div>
 
               <div className="rounded-2xl border border-champagne-200 bg-wedding-50/50 p-4 text-center space-y-1">
-                <div className="font-serif text-lg font-bold text-amber-600 flex items-center justify-center gap-1">
-                  <Sparkles className="h-4 w-4 fill-amber-500 text-amber-600" />
+                <div className="font-serif text-lg font-bold text-amber-700 flex items-center justify-center gap-1.5">
+                  <BadgeCheck className="h-4 w-4 text-amber-600" />
                   Verified Pro
                 </div>
                 <p className="text-[11px] text-slate-600 leading-tight">

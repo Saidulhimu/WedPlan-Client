@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useEffect, useState } from "react";
 import { User } from "@/types";
@@ -13,7 +13,7 @@ import {
   ShieldAlert,
   ShieldCheck,
   Loader2,
-  Sparkles,
+  Crown,
 } from "lucide-react";
 
 export default function AdminUsersPage() {
@@ -149,7 +149,7 @@ export default function AdminUsersPage() {
                           }`}
                       >
                         {u.subscriptionPlan === "premium" && (
-                          <Sparkles className="h-3 w-3 fill-amber-500 text-amber-500" />
+                          <Crown className="h-3 w-3 text-amber-700" />
                         )}
                         {u.subscriptionPlan}
                       </span>

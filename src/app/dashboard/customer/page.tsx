@@ -11,7 +11,6 @@ import {
   CheckCircle2,
   XCircle,
   ArrowRight,
-  Sparkles,
 } from "lucide-react";
 
 export default function CustomerDashboardPage() {
@@ -133,15 +132,14 @@ export default function CustomerDashboardPage() {
                 </div>
                 <div>
                   <span
-                    className={`inline-flex items-center rounded-full px-3 py-1 text-[11px] font-bold capitalize ${
-                      b.status === "accepted"
+                    className={`inline-flex items-center rounded-full px-3 py-1 text-[11px] font-bold capitalize ${b.status === "accepted"
                         ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
                         : b.status === "rejected"
-                        ? "bg-rose-50 text-rose-700 border border-rose-200"
-                        : b.status === "cancelled"
-                        ? "bg-slate-100 text-slate-600 border border-slate-200"
-                        : "bg-amber-50 text-amber-700 border border-amber-200"
-                    }`}
+                          ? "bg-rose-50 text-rose-700 border border-rose-200"
+                          : b.status === "cancelled"
+                            ? "bg-slate-100 text-slate-600 border border-slate-200"
+                            : "bg-amber-50 text-amber-700 border border-amber-200"
+                      }`}
                   >
                     {b.status}
                   </span>
