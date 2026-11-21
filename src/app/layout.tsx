@@ -10,7 +10,12 @@ export const metadata: Metadata = {
   description:
     "Discover the world's finest wedding venues, cinematographers, florists, and catering services. Effortless booking requests and verified vendor management.",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/icon.svg",
   },
 };
 
